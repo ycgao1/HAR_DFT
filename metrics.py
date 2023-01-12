@@ -47,7 +47,7 @@ def draw_history(learning_hist):
     np.savez("results/accurate", learning_hist.history['accuracy'],learning_hist.history['val_accuracy'])
     np.savez("results/loss", learning_hist.history['loss'],learning_hist.history['val_loss'])
     
-def FLOPS(model):
+def FLOPs(model):
     forward_pass = tf.function(
     model.call,
     input_signature=[tf.TensorSpec(shape=(1,) + model.input_shape[1:])])
