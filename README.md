@@ -14,5 +14,6 @@ python train.py --FeatureExt FC --DFT 1 --DFT_number 16  --frame 60 --data_path 
 
 ## Model Test
 ```
-python test.py --FeatureExt FC --DFT 1 --DFT_number 16  --frame 60 --data_path data/voxel/ --model_dir model_data/ --confusion_metrics 1 --FLOPS 1
+python test.py --FeatureExt FC --DFT 1 --DFT_number 16  --frame 60 --data_path data/voxel/ --model_dir model_data/ --confusion_metrics 1 --FLOPs 1
 ```
+* `FLOPs` is the model floating point operations
