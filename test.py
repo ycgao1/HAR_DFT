@@ -34,7 +34,7 @@ from data_loader import get_data
 from metrics import *
 import argparse
 
-def model_test(FeatureExt, DFT, DFT_number, frame, model_name, model_path, test_data, test_label, confusion, FLOPS_calculation):
+def model_test(FeatureExt, DFT, DFT_number, frame, model_name, model_path, test_data, test_label, confusion, FLOPs_calculation):
     print("test:")
     model = classification(FeatureExt, DFT, DFT_number, frame)
     model.compile(loss=tf.keras.losses.categorical_crossentropy, metrics=['accuracy'])
@@ -46,8 +46,8 @@ def model_test(FeatureExt, DFT, DFT_number, frame, model_name, model_path, test_
     print(predict.shape)
     if(confusion):
         matrix(predict, test_label)
-    if(FLOPS_calculation):
-        FLOPS(model)
+    if(FLOPs_calculation):
+        FLOPs(model)
     
     del model
 
@@ -60,7 +60,7 @@ def main():
     parser.add_argument("--data_path", default='data/voxel/')
     parser.add_argument("--model_dir", default='model_data/')
     parser.add_argument("--confusion_metrics", default=1, type=int)
-    parser.add_argument("--FLOPS", default=1, type=int)
+    parser.add_argument("--FLOPs", default=1, type=int)
     
     args = parser.parse_args()
     
@@ -82,12 +82,12 @@ def main():
         return
     model_path = model_dir+ model_name +'_model.h5'
     confusion = args.confusion_metrics
-    FLOPS_calculation= args.FLOPS
+    FLOPs_calculation= args.FLOPs
     
     
     test_data, test_label = get_data(data_path, 'test')
      
-    model_test(FeatureExt, DFT, DFT_number, frame, model_name, model_path, test_data, test_label, confusion, FLOPS_calculation)
+    model_test(FeatureExt, DFT, DFT_number, frame, model_name, model_path, test_data, test_label, confusion, FLOPs_calculation)
     
 if __name__ == "__main__":
     main()
