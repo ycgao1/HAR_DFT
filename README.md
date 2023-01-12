@@ -3,7 +3,7 @@ A Lightweight Deep Learning Solution for mmWave Human Activity Recognition based
 
 ## Data Preoricessing
 ```
-python voxel_generator.py --frame 60 --sliding_window 10 --data_path data/raw --data_save data/voxel/
+python voxel_generator.py --frame 60 --sliding_window 10 --data_path data/raw/ --data_save data/voxel/
 ```
 
 ## Model Train
